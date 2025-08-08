@@ -38,10 +38,10 @@ export default function NotesClient({ initialData, searchTag }: NotesClientProps
 
   useEffect(() => {
     setPage(1);
-  }, [searchText]);
+  }, [searchText, searchTag]);
 
   const { data, isLoading, error } = useQuery({
-    queryKey: ['notes', { search: debouncedSearch, page }],
+    queryKey: ['notes', { search: debouncedSearch, page, searchTag }],
     queryFn: () => fetchNotes({ search: debouncedSearch, tag: searchTag, page, perPage: 12 }),
     initialData: page === 1 && debouncedSearch === '' ? initialData : undefined,
     placeholderData: keepPreviousData,

@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import css from './Header.module.css';
-import TagsMenu from '../TagsMenu/TagsMenu';
+import TagsMenu from '../TagsMenu/TagMenu';
 
 export default function Header() {
   return (

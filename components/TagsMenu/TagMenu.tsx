@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import css from './TagsMenu.module.css'; // use your given CSS
+import css from './TagMenu.module.css'; // use your given CSS
 import Link from 'next/link';
 
 const tags = ['All', 'Work', 'Personal', 'Meeting', 'Shopping', 'Todo'];
@@ -31,7 +31,7 @@ export default function TagMenu() {
       {isOpen && (
         <ul className={css.menuList}>
         {tags.map((tag) => (
-          <li key={tag} className={css.menuItem}>
+          <li key={tag} className={css.menuItem} onClick={() => setIsOpen(false)}>
             <Link
               href={
                 tag === 'All'
