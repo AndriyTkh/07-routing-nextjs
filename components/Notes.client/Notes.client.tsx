@@ -13,17 +13,18 @@ import Modal from '@/components/Modal/Modal';
 import { fetchNotes } from '@/lib/api';
 import { FetchNotesResponse } from '@/types/FetchNotesResponse';
 
-import styles from './page.module.css';
+import styles from './Notes.client.module.css';
 
 interface NotesClientProps {
   initialData: FetchNotesResponse;
+  searchTag?: string;
 }
 
-export default function NotesClient({ initialData }: NotesClientProps) {
+export default function NotesClient({ initialData, searchTag }: NotesClientProps) {
   const [page, setPage] = useState(1);
   const [showModal, setShowModal] = useState(false);
-  const [searchText, setSearchText] = useState('');
-  const [debouncedSearch, setDebouncedSearch] = useState('');
+  const [searchText, setSearchText] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
 
   const debouncedUpdate = useMemo(
     () => debounce((value: string) => setDebouncedSearch(value), 300),
@@ -41,7 +42,7 @@ export default function NotesClient({ initialData }: NotesClientProps) {
 
   const { data, isLoading, error } = useQuery({
     queryKey: ['notes', { search: debouncedSearch, page }],
-    queryFn: () => fetchNotes({ search: debouncedSearch, page, perPage: 12 }),
+    queryFn: () => fetchNotes({ search: debouncedSearch, tag: searchTag, page, perPage: 12 }),
     initialData: page === 1 && debouncedSearch === '' ? initialData : undefined,
     placeholderData: keepPreviousData,
   });
