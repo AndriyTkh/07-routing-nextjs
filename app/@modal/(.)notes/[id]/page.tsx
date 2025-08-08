@@ -1,4 +1,4 @@
-import NotePreview from "./NotePreview.client.tsx";
+import NotePreview from "./NotePreview.client";
 
 export default function NotePreviewPage() {
   return (<NotePreview />);
