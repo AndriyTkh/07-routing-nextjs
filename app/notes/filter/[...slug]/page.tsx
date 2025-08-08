@@ -1,5 +1,5 @@
 import { fetchNotes } from '@/lib/api';
-import NotesClient from '../../../../components/Notes.client/Notes.client';
+import NotesClient from './Notes.client';
 import { FetchNotesResponse } from '@/types/FetchNotesResponse';
 
 type Props = {
