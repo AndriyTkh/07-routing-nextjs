@@ -1,10 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
-import css from './TagMenu.module.css'; // use your given CSS
+import css from './TagsMenu.module.css'; // use your given CSS
 import Link from 'next/link';
 
 const tags = ['All', 'Work', 'Personal', 'Meeting', 'Shopping', 'Todo'];
 
-export default function TagMenu() {
+export default function TagsMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
