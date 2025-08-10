@@ -13,9 +13,10 @@ interface NotePreviewProps {
 export default function NotePreview({ id }: NotePreviewProps) {
   const router = useRouter();
 
-  const { data: note, isLoading, error } = useQuery({
+  const { data:     note, isLoading, error } = useQuery({
     queryKey: ['note', id],
     queryFn: () => fetchNoteById(id),
+    refetchOnMount: false,
   });
 
   return (
